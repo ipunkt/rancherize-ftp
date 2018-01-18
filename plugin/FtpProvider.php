@@ -40,6 +40,6 @@ class FtpProvider implements Provider {
 		$event = $this->container[EventDispatcher::class];
 		$eventHandler = $this->container['ftp.infrastructure.eventhandler'];
 
-		$event->addListener(MainServiceBuiltEvent::class, [$eventHandler, 'mainServiceBuilt']);
+		$event->addListener(MainServiceBuiltEvent::NAME, [$eventHandler, 'mainServiceBuilt']);
 	}
 }
