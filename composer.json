@@ -1,0 +1,26 @@
+{
+  "name": "ipunkt/rancherize-ftp",
+  "description": "Add an ftp server to a rancherize project",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sven Speckmaier",
+      "email": "sps@ipunkt.biz"
+    }
+  ],
+  "autoload":{
+    "psr-4": {
+      "RancherizeFtp\\": "plugin/"
+    }
+  },
+  "require": {},
+  "require-dev": {
+    "ipunkt/rancherize": "dev-master as 2.19.0",
+    "ipunkt/rancherize-php53": "dev-master as 2.19.0"
+  },
+  "extra":{
+    "rancherize-provider":"RancherizeFtp\\FtpProvider"
+  },
+  "minimum-stability":"stable"
+}
