@@ -48,7 +48,7 @@ class FtpParser {
 			}
 		}
 
-		$ftpService->setCommand("bash -c '/bin/mkdir /home/vsftpd/${user} && /bin/chown ${user}.${password} /home/vsftpd/${user}/ && bash /usr/sbin/run-vsftpd.sh'");
+		$ftpService->setCommand("bash -c '/bin/mkdir /home/vsftpd/${user} ; /bin/chown ${user}.${password} /home/vsftpd/${user}/ && bash /usr/sbin/run-vsftpd.sh'");
 
 		return $ftpService;
 	}
