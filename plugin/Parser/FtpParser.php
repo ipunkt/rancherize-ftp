@@ -36,7 +36,7 @@ class FtpParser {
 		$ftpService->setEnvironmentVariable('LOG_STDOUT', 'true' );
 		$ftpService->setEnvironmentVariable('PASV_ADDRESS', '127.0.0.1' );
 
-		$minPort = $config->get( 'ftp.min_port', 200000 );
+		$minPort = $config->get( 'ftp.min_port', 20000 );
 		$ftpService->setEnvironmentVariable('PASV_MIN_PORT', $minPort );
 		$maxPort = $config->get( 'ftp.max_port', $minPort + 5 );
 		$ftpService->setEnvironmentVariable('PASV_MAX_PORT', $maxPort );
