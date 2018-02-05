@@ -22,6 +22,9 @@ class FtpParser {
 	 * @return Service
 	 */
 	public function parse( Configuration $config ) {
+		if(!$config->has('ftp'))
+			throw new NoFtpException();
+
 		$ftpService = new Service;
 
 		$ftpService->setName('Ftp');

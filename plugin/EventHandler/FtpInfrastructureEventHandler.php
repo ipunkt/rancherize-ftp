@@ -1,6 +1,7 @@
 <?php namespace RancherizeFtp\EventHandler;
 use Rancherize\Blueprint\Events\MainServiceBuiltEvent;
 use RancherizeFtp\Parser\FtpParser;
+use RancherizeFtp\Parser\NoFtpException;
 
 /**
  * Class FtpInfrastructureEventHandler
@@ -28,7 +29,11 @@ class FtpInfrastructureEventHandler {
 		$config = $event->getEnvironmentConfiguration();
 		$mainService = $event->getMainService();
 
-		$ftpService = $this->ftpParser->parse($config);
+		try {
+			$ftpService = $this->ftpParser->parse($config);
+		} catch(NoFtpException $e) {
+			return;
+		}
 
 		$mainService->addLink($ftpService, 'ftp');
 		$mainService->setEnvironmentVariable('FTP_USER', $this->ftpParser->getUser($config) );
